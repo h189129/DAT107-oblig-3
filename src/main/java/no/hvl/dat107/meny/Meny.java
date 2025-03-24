@@ -16,6 +16,10 @@ public class Meny {
         System.out.println("10. Vis alle avdelinger");
         System.out.println("11. Legg til ny avdeling");
         System.out.println("12. Vis ansatte på avdeling");
-        System.out.println("13. Avslutt");
+        System.out.println("13. Legg til nytt prosjekt");
+        System.out.println("14. Søk etter prosjekt med ID");
+        System.out.println("15. Registrer ansatt på prosjekt");
+        System.out.println("16. Oppdater timer for ansatt på prosjekt");
+        System.out.println("17. Avslutt");
     }
 }

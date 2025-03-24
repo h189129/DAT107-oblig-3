@@ -3,45 +3,43 @@ package no.hvl.dat107.entitet;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "prosjektdeltagelse")
 public class Prosjektdeltagelse {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "ansatt_id", nullable = false)
     private Ansatt ansatt;
 
     @ManyToOne
+    @JoinColumn(name = "prosjekt_id", nullable = false)
     private Prosjekt prosjekt;
 
-    @Column(name = "rolle", nullable = false, length=100)
+    @Column(name = "rolle", nullable = false, length = 100)
     private String rolle;
 
-    @Column(name = "timer", length=4)
+    @Column(name = "timer")
     private int timer = 0;
 
+    // Constructors
     public Prosjektdeltagelse() {}
 
     public Prosjektdeltagelse(
-            int id,
             Ansatt ansatt,
             Prosjekt prosjekt,
-            String rolle,
-            int timer
+            String rolle
     ) {
-        this.id = id;
         this.ansatt = ansatt;
         this.prosjekt = prosjekt;
         this.rolle = rolle;
-        this.timer = timer;
+        this.timer = 0;
     }
 
-    // Getters and setters
+    // Getters og setters
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Ansatt getAnsatt() {
@@ -80,8 +78,8 @@ public class Prosjektdeltagelse {
     public String toString() {
         return "Prosjektdeltagelse{" +
                 "id=" + id +
-                ", ansatt=" + ansatt +
-                ", prosjekt=" + prosjekt +
+                ", ansatt=" + ansatt.getId() +  // Viser kun ID for ansatt
+                ", prosjekt=" + prosjekt.getId() + // Viser kun ID for prosjekt
                 ", rolle='" + rolle + '\'' +
                 ", timer=" + timer +
                 '}';

@@ -27,13 +27,13 @@ public class ProsjektUseCases {
     }
 
     // Finn prosjekt med id
-    public void sokEtterProsjektMedId(int id) {
-        id = BrukerInputUtil.lesHeltall("Skriv inn ansatt-ID: ", scanner);
+    public void sokEtterProsjektMedId() {
+        int id = BrukerInputUtil.lesHeltall("Skriv inn prosjekt-ID: ", scanner);
         Prosjekt prosjekt = prosjektDAO.finnProsjektMedId(id);
         if (prosjekt != null) {
             prosjekt.skrivUtProsjekt();
         } else {
-            System.out.println("Ingen ansatt funnet med ID " + id);
+            System.out.println("Ingen prosjekt funnet med ID " + id);
         }
     }
 

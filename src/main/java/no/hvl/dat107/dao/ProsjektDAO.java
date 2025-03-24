@@ -5,6 +5,8 @@ import jakarta.persistence.NoResultException;
 import no.hvl.dat107.entitet.Prosjekt;
 import no.hvl.dat107.util.JpaUtil;
 
+import java.util.List;
+
 public class ProsjektDAO {
     private final EntityManagerFactory emf;
     public ProsjektDAO(EntityManagerFactory emf) {
@@ -31,8 +33,6 @@ public class ProsjektDAO {
         });
     }
 
-    public void registrerDeltagelse() {}
 
-    public void oppdaterTimer() {}
 
 }
