@@ -26,7 +26,7 @@ public class ProsjektUseCases {
         System.out.println("Nytt prosjekt er lagt til!");
     }
 
-    // Finn prosjekt med id
+    // Case 15: Søk etter prosjekt med ID
     public void sokEtterProsjektMedId() {
         int id = BrukerInputUtil.lesHeltall("Skriv inn prosjekt-ID: ", scanner);
         Prosjekt prosjekt = prosjektDAO.finnProsjektMedId(id);

@@ -23,7 +23,7 @@ public class ProsjektdeltagelseUseCases {
         this.scanner = scanner;
     }
 
-    // Registrer ansatt på prosjekt
+    // Case 16: Registrer ansatt på prosjekt
     public void registrerAnsattPaaProsjekt() {
         System.out.println("Registrer ansatt på prosjekt: ");
         int ansattId = BrukerInputUtil.lesHeltall("Ansatt-ID: ", scanner);
@@ -48,6 +48,7 @@ public class ProsjektdeltagelseUseCases {
 
     }
 
+    // Case 17: Oppdater timer for ansatt på prosjekt
     public void oppdaterTimerForAnsattPaaProsjekt() {
         System.out.println("Registrer timer for ansatt på prosjekt: ");
         int ansattId = BrukerInputUtil.lesHeltall("Ansatt-ID: ", scanner);

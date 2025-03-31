@@ -9,11 +9,11 @@ import java.util.List;
 
 public class ProsjektDAO {
     private final EntityManagerFactory emf;
+
     public ProsjektDAO(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
-    //
     public void leggTilProsjekt(Prosjekt nyttProsjekt) {
         JpaUtil.executeInTransaction(emf, em -> {
             em.persist(nyttProsjekt);
@@ -32,7 +32,5 @@ public class ProsjektDAO {
             }
         });
     }
-
-
 
 }

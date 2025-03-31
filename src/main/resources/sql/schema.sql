@@ -1,4 +1,3 @@
-
 -- Iterasjon 1
 
 -- Oppretter ansatt tabell
@@ -13,7 +12,7 @@ CREATE TABLE ansatt (
 );
 
 -- Oppretter ansatte
-INSERT INTO Ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn)
+INSERT INTO ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn)
 VALUES
     ('lph', 'Lars-Petter', 'Helland', '2025-01-01', 'Professor', 75000.00),
     ('abc', 'Anna', 'Bakken', '2024-03-15', 'Utvikler', 62000.00),
@@ -36,7 +35,6 @@ VALUES
     ('zab', 'Zara', 'Bergen', '2022-02-14', 'Support', 56000.00),
     ('cde', 'Carl', 'Dahl', '2021-08-29', 'Sjef', 83000.00);
 
-
 -- Iterasjon 3
 
 -- Oppretter tabell for avdeling
@@ -51,10 +49,10 @@ ALTER TABLE ansatt ADD COLUMN avdeling_id INTEGER;
 
 -- Setter inn avdelinger med midlertidige sjef-IDer
 INSERT INTO avdeling (navn, sjef_id) VALUES
-     ('IT', 1),       -- Sjef: Lars-Petter Helland
-     ('HR', 6),       -- Sjef: Marte Nordli
-     ('Marked', 11),  -- Sjef: Beate Christiansen
-     ('Support', 20); -- Sjef: Carl Dahl
+                                         ('IT', 1),       -- Sjef: Lars-Petter Helland
+                                         ('HR', 6),       -- Sjef: Marte Nordli
+                                         ('Marked', 11),  -- Sjef: Beate Christiansen
+                                         ('Support', 20); -- Sjef: Carl Dahl
 
 -- Oppdater ansattes avdelingstilhørighet
 UPDATE ansatt SET avdeling_id = 1 WHERE id BETWEEN 1 AND 5;    -- IT-avdelingen
@@ -70,7 +68,6 @@ ALTER TABLE ansatt
     ADD CONSTRAINT fk_avdeling
         FOREIGN KEY (avdeling_id)
             REFERENCES avdeling(id);
-
 
 -- Iterasjon 5
 
@@ -88,8 +85,7 @@ CREATE TABLE prosjektdeltagelse (
                                     timer INTEGER DEFAULT 0
 );
 
-
--- 1. Legg til 10 prosjekter
+-- 1. Legger til 10 prosjekter
 INSERT INTO prosjekt (navn, beskrivelse) VALUES
                                              ('Digital Plattformutvikling', 'Utvikling av en ny digital plattform for kundeengasjement'),
                                              ('App Modernisering', 'Modernisering av eksisterende mobilapplikasjon'),
@@ -102,8 +98,8 @@ INSERT INTO prosjekt (navn, beskrivelse) VALUES
                                              ('Internt Kommunikasjonsverktøy', 'Utvikling av chat og prosjektverktøy for ansatte'),
                                              ('Automatiserte Rapporter', 'Automatisering av månedlige driftsrapporter');
 
--- 2. Legg til 50 prosjektdeltagelser (ansatt 1-20, prosjekt 1-10)
--- Sikrer maks 3 prosjekter per ansatt og varierte roller/timer
+-- 2. Legger til 50 prosjektdeltagelser (ansatt 1-20, prosjekt 1-10)
+-- Maks 3 prosjekter per ansatt og varierte roller/timer
 INSERT INTO prosjektdeltagelse (ansatt_id, prosjekt_id, rolle, timer) VALUES
 -- Prosjekt 1 (6 deltagere)
 (1, 1, 'Prosjektleder', 120),
@@ -156,14 +152,13 @@ INSERT INTO prosjektdeltagelse (ansatt_id, prosjekt_id, rolle, timer) VALUES
 (20, 7, 'Tester', 75),
 
 -- Prosjekt 8 (5 deltagere)
-(1, 8, 'Fullstack-utvikler', 130),
+(2, 8, 'Fullstack-utvikler', 130),
 (4, 8, 'Frontend-utvikler', 115),
 (7, 8, 'Backend-utvikler', 125),
 (10, 8, 'Prosjektleder', 140),
 (13, 8, 'UX-designer', 90),
 
 -- Prosjekt 9 (5 deltagere)
-(2, 9, 'Chat Systemutvikler', 100),
 (5, 9, 'Backend-utvikler', 110),
 (8, 9, 'Prosjektleder', 120),
 (11, 9, 'Frontend-utvikler', 95),

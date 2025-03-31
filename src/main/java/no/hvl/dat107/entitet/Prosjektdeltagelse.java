@@ -2,6 +2,8 @@ package no.hvl.dat107.entitet;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "prosjektdeltagelse")
 public class Prosjektdeltagelse {
@@ -83,5 +85,17 @@ public class Prosjektdeltagelse {
                 ", rolle='" + rolle + '\'' +
                 ", timer=" + timer +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Prosjektdeltagelse that = (Prosjektdeltagelse) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

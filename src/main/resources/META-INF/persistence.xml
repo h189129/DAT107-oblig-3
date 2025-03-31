@@ -14,9 +14,9 @@
         <properties>
 
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_dat107_oblig3"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ider-database.westeurope.cloudapp.azure.com:5433/h189129"/>
             <property name="jakarta.persistence.jdbc.user" value="h189129"/>
-            <property name="jakarta.persistence.jdbc.password" value="Oblig3ToPersoner"/>
+            <property name="jakarta.persistence.jdbc.password" value="torgeir_hvl"/>
 
 
             <property name="eclipselink.target-database"

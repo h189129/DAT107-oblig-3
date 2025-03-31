@@ -4,7 +4,10 @@ import no.hvl.dat107.dao.AnsattDAO;
 import no.hvl.dat107.dao.AvdelingDAO;
 import no.hvl.dat107.entitet.Avdeling;
 import no.hvl.dat107.entitet.Ansatt;
+import no.hvl.dat107.meny.Meny;
 import no.hvl.dat107.util.BrukerInputUtil;
+import no.hvl.dat107.util.JpaUtil;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -63,6 +66,9 @@ public class AvdelingUseCases {
             System.out.println(e.getMessage());
         }
     }
+
+    // Case 13: Må jobbe mer med denne. Mulig vi må redesigne databasen. sirkulær avhengighet skaper trøbbel ved sletting.
+    public void slettAvdeling() {}
 
     // Case 12: Vis ansatte på avdeling
     public void visAnsattePaaAvdeling() {

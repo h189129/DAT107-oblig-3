@@ -3,6 +3,7 @@ package no.hvl.dat107.entitet;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "avdeling")
@@ -80,5 +81,17 @@ public class Avdeling {
         System.out.println("Avdelings ID: " + id);
         System.out.println("Avdeling: " + navn);
         System.out.println("Avdelingssjef: " + sjef);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Avdeling avdeling = (Avdeling) o;
+        return id == avdeling.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

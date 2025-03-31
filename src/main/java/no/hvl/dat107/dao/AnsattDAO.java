@@ -49,12 +49,11 @@ public class AnsattDAO {
     }
 
     // Oppdater stilling og lønn på en ansatt
-    public void oppdaterStillingOgLonn(int id, String nyStilling, double nyLonn) {
+    public void oppdaterStilling(int id, String nyStilling) {
         JpaUtil.executeInTransaction(emf, em -> {
             Ansatt ansatt = em.find(Ansatt.class, id);
             if (ansatt != null) {
                 ansatt.setStilling(nyStilling);
-                ansatt.setMaanedslonn(nyLonn);
             }
             return null;
         });
@@ -80,19 +79,21 @@ public class AnsattDAO {
     }
 
     // Oppdater avdeling
-    public void oppdaterAvdeling(int ansattId, Avdeling nyAvdeling) {
+    public void oppdaterAvdelingPaaAnsatt(int ansattId, Avdeling nyAvdeling) {
         JpaUtil.executeInTransaction(emf, em -> {
             Ansatt ansatt = em.find(Ansatt.class, ansattId);
             Avdeling gammelAvdeling = ansatt.getAvdeling();
 
-            // Fjern fra gammel avdeling
             if (gammelAvdeling != null) {
+                // Fjern fra gammel avdeling (både database og in-memory)
                 gammelAvdeling.getAnsatte().remove(ansatt);
+                em.merge(gammelAvdeling); // Tving gjennom endringer
             }
 
-            // Legg til i ny avdeling
+            // Legg til i ny avdeling (både database og in-memory)
             nyAvdeling.getAnsatte().add(ansatt);
             ansatt.setAvdeling(nyAvdeling);
+            em.merge(nyAvdeling); // Tving gjennom endringer
 
             return null;
         });

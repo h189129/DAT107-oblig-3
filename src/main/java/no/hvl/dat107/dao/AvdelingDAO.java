@@ -47,7 +47,7 @@ public class AvdelingDAO {
     }
 
     // Slett avdeling
-    public void fjernAvdeling(int id) {
+    public void slettAvdeling(int id) {
         JpaUtil.executeInTransaction(emf, em -> {
             Avdeling avdeling = em.find(Avdeling.class, id);
             if (avdeling != null) {

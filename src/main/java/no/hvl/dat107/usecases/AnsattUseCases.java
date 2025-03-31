@@ -84,7 +84,7 @@ public class AnsattUseCases {
             return;
         }
 
-        ansattDAO.oppdaterAvdeling(ansattId, nyAvdeling);
+        ansattDAO.oppdaterAvdelingPaaAnsatt(ansattId, nyAvdeling);
         System.out.println("Avdeling oppdatert!");
     }
 
@@ -131,7 +131,7 @@ public class AnsattUseCases {
     }
 
     // Case 6: Oppdater stilling og lønn
-    public void oppdaterStillingOgLonn() {
+    public void oppdaterStilling() {
         int id = BrukerInputUtil.lesHeltall("Skriv inn ansatt-ID: ", scanner);
         Ansatt ansatt = ansattDAO.finnAnsattMedId(id);
 
@@ -144,14 +144,13 @@ public class AnsattUseCases {
         ansatt.skrivUt();
 
         String nyStilling = BrukerInputUtil.lesStreng("Ny stilling: ", scanner);
-        double nyLonn = BrukerInputUtil.lesDesimaltall("Ny månedslønn: ", scanner);
 
-        ansattDAO.oppdaterStillingOgLonn(id, nyStilling, nyLonn);
+        ansattDAO.oppdaterStilling(id, nyStilling);
         System.out.println("\nOppdatert informasjon:");
         ansattDAO.finnAnsattMedId(id).skrivUt();
     }
 
-    // Case 8: Oppdater kun lønn
+    // Case 8: Oppdater lønn
     public void oppdaterLonn() {
         int id = BrukerInputUtil.lesHeltall("Skriv inn ansatt-ID: ", scanner);
         Ansatt ansatt = ansattDAO.finnAnsattMedId(id);

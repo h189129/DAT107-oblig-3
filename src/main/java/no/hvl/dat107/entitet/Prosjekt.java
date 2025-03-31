@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "prosjekt")
@@ -79,5 +80,17 @@ public class Prosjekt {
         System.out.println("Prosjekt ID: " + id);
         System.out.println("Prosjektnavn: " + navn);
         System.out.println("Prosjektbeskrivelse: " + beskrivelse);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Prosjekt prosjekt = (Prosjekt) o;
+        return id == prosjekt.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

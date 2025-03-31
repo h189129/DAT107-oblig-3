@@ -40,18 +40,19 @@ public class Main {
                 case 3 -> ansattCases.sokEtterBrukernavn();
                 case 4 -> ansattCases.leggTilNyAnsatt();
                 case 5 -> ansattCases.fjernAnsatt();
-                case 6 -> ansattCases.oppdaterStillingOgLonn();
+                case 6 -> ansattCases.oppdaterStilling();
                 case 7 -> ansattCases.oppdaterAvdelingForAnsatt();
                 case 8 -> ansattCases.oppdaterLonn();
                 case 9 -> avdelingCases.sokEtterAvdelingId();
                 case 10 -> avdelingCases.visAlleAvdelinger();
                 case 11 -> avdelingCases.leggTilNyAvdeling();
                 case 12 -> avdelingCases.visAnsattePaaAvdeling();
-                case 13 -> prosjektCases.leggTilNyttProsjekt();
-                case 14 -> prosjektCases.sokEtterProsjektMedId();
-                case 15 -> prosjektdeltagelseCases.registrerAnsattPaaProsjekt();
-                case 16 -> prosjektdeltagelseCases.oppdaterTimerForAnsattPaaProsjekt();
-                case 17 -> kjor = false;
+                case 13 -> avdelingCases.slettAvdeling();
+                case 14 -> prosjektCases.leggTilNyttProsjekt();
+                case 15 -> prosjektCases.sokEtterProsjektMedId();
+                case 16 -> prosjektdeltagelseCases.registrerAnsattPaaProsjekt();
+                case 17 -> prosjektdeltagelseCases.oppdaterTimerForAnsattPaaProsjekt();
+                case 18 -> kjor = false;
                 default -> System.out.println("Ugyldig valg, prøv igjen.");
             }
         }
